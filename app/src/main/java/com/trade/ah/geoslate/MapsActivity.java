@@ -25,6 +25,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -72,6 +73,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     private static final String NOTIFICATION_MSG = "NOTIFICATION MSG";
     private Button btnGo;
+    private String geoMarker;
 
     public static Intent makeNotificationIntent(Context context, String msg) {
         Intent intent = new Intent(context, MapsActivity.class);
@@ -161,7 +163,9 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 new ColorDrawable(ContextCompat.getColor(MapsActivity.this, R.color.light_white)));
         dialog.setContentView(R.layout.setting);
         final TextView tvArea = dialog.findViewById(R.id.tvArea);
+        final EditText geoName = dialog.findViewById(R.id.geoName);//add
         tvArea.setText(String.valueOf(GEOFENCE_RADIUS));
+        geoMarker = geoName.getText().toString();
         SeekBar seekBar = dialog.findViewById(R.id.seekBar);
         seekBar.setProgress((int) GEOFENCE_RADIUS);
 
@@ -366,7 +370,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     private void markerForGeofence(LatLng latLng) {
         Log.e(TAG, "markerForGeofence(" + latLng + ")");
-        String title = latLng.latitude + ", " + latLng.longitude;
+        //String title = latLng.latitude + ", " + latLng.longitude;
+        String title = geoMarker;//add
         this.markerLocation = latLng;
         // Define marker options
         MarkerOptions markerOptions = new MarkerOptions()
