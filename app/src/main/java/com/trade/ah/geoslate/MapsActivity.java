@@ -10,7 +10,6 @@ import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.location.Location;
-import android.location.LocationListener;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
@@ -139,6 +138,11 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             }
             case R.id.clear: {
                 clearGeofence();
+                return true;
+            }
+
+            case R.id.quit: {
+                finish();
                 return true;
             }
             case R.id.setting: {

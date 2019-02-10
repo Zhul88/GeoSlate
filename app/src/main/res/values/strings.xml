@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">GeoSlate</string>
-    <string name="title_activity_maps">Map</string>
+    <string name="title_activity_maps">GeoSlate App</string>
 </resources>

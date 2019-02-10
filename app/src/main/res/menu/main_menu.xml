@@ -10,6 +10,10 @@
         android:title="Clear Geofence"
         app:showAsAction="never" />
     <item
+        android:id="@+id/quit"
+        android:title="Exit"
+        app:showAsAction="never" />
+    <item
         android:id="@+id/setting"
         android:title=""
         android:icon="@drawable/ic_settings_24dp"
